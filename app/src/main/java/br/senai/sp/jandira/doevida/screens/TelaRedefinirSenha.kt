@@ -1,34 +1,13 @@
-package br.senai.sp.jandira.doevida
+package br.senai.sp.jandira.doevida.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -40,11 +19,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import br.senai.sp.jandira.doevida.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TelaRecuperacaoEmail(navController: NavController) {
+fun TelaRedefinirSenha(navController: NavController) {
     var email by remember { mutableStateOf("") }
+    var senha by remember { mutableStateOf("") }
 
     Box(
         modifier = Modifier
@@ -79,17 +60,16 @@ fun TelaRecuperacaoEmail(navController: NavController) {
                 .fillMaxSize()
                 .padding(horizontal = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
-            Spacer(modifier = Modifier.weight(1f))
-
             Image(
-                painter = painterResource(id = R.drawable.logorecuperacao),
+                painter = painterResource(id = R.drawable.logologin),
                 contentDescription = "Logo DOEVIDA",
                 modifier = Modifier
                     .size(180.dp)
                     .padding(bottom = 32.dp)
             )
-            Spacer(modifier = Modifier.weight(0.5f))
+
             Text(
                 text = "Digite seu Email ou Usuário",
                 fontSize = 14.sp,
@@ -121,8 +101,50 @@ fun TelaRecuperacaoEmail(navController: NavController) {
                 }
             )
 
-            // Spacer para empurrar o botão para baixo
-            Spacer(modifier = Modifier.weight(1f))
+            Text(
+                text = "Digite sua Senha",
+                fontSize = 14.sp,
+                color = Color(0xFF990410),
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.align(Alignment.Start)
+            )
+            OutlinedTextField(
+                value = senha,
+                onValueChange = { senha = it },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp)
+                    .height(56.dp),
+                placeholder = { Text("Senha", color = Color.White) },
+                visualTransformation = PasswordVisualTransformation(),
+                colors = TextFieldDefaults.outlinedTextFieldColors(
+                    containerColor = Color(0xFF990410),
+                    focusedBorderColor = Color.Transparent,
+                    unfocusedBorderColor = Color.Transparent
+                ),
+                shape = RoundedCornerShape(8.dp),
+                leadingIcon = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.senha),
+                        contentDescription = "Ícone de senha",
+                        tint = Color.White,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+            )
+
+            Text(
+                text = "Esqueci minha senha?",
+                color = Color(0xFF990410),
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .align(Alignment.End)
+                    .clickable { /* navegação para recuperação */ }
+                    .padding(top = 8.dp, bottom = 32.dp),
+                fontSize = 14.sp
+            )
+
+            Spacer(modifier = Modifier.height(15.dp))
 
             Button(
                 onClick = { /* login */ },
@@ -132,25 +154,37 @@ fun TelaRecuperacaoEmail(navController: NavController) {
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
                     .height(48.dp)
-                    .width(200.dp)
+                    .width(130.dp)
             ) {
                 Text(
-                    text = "Concluir Nova Senha",
+                    text = "Entrar",
                     color = Color.White,
-                    fontSize = 15.sp,
+                    fontSize = 18.sp,
                     fontWeight = FontWeight.Medium
                 )
             }
 
-            // Spacer para garantir que o botão não toque a parte inferior
-            Spacer(modifier = Modifier.weight(0.5f))
+            Text(
+                text = "Não tem uma conta?",
+                color = Color(0xFF990410),
+                fontSize = 14.sp,
+                modifier = Modifier.padding(top = 32.dp)
+            )
+            Text(
+                text = "Fazer cadastro",
+                color = Color(0xFF990410),
+                fontWeight = FontWeight.Bold,
+                fontSize = 14.sp,
+                modifier = Modifier
+                    .clickable { /* navegação para cadastro */ }
+            )
         }
     }
 }
 
 @Preview
 @Composable
-private fun TelaRecuperacaoEmailPreview() {
+private fun TelaRedefinirSenhaPreview() {
     val navController = rememberNavController()
-    TelaRecuperacaoEmail(navController = navController)
+    TelaRedefinirSenha(navController = navController)
 }

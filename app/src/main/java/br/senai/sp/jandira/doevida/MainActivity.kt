@@ -9,7 +9,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.senai.sp.jandira.doevida.screens.TelaInicial
-import br.senai.sp.jandira.doevida.screens.TelaLogin
+import br.senai.sp.jandira.doevida.screens.TelaRecuperacaoEmail
+import br.senai.sp.jandira.doevida.screens.TelaRedefinirSenha
 import br.senai.sp.jandira.doevida.ui.theme.DoeVidaTheme
 
 class MainActivity : ComponentActivity() {
@@ -37,6 +38,9 @@ fun AppNavigation() {
         }
         composable("tela_recuperacao_email") {
             TelaRecuperacaoEmail(navController)
+        }
+        composable("tela_redefinir_senha") {
+            TelaRedefinirSenha(navController)
         }
     }
 }
