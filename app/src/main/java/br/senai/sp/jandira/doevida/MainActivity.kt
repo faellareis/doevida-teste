@@ -35,8 +35,8 @@ fun AppNavigation() {
         composable("tela_inicial") {
             TelaInicial(navController)
         }
-        composable("tela_login") {
-            TelaLogin(navController)
+        composable("tela_recuperacao_email") {
+            TelaRecuperacaoEmail(navController)
         }
     }
 }
