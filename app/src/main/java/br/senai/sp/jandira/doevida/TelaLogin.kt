@@ -30,12 +30,8 @@ fun TelaLogin(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .background(color = Color.White)
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color.White)
-        )
 
         Box(
             modifier = Modifier
@@ -136,7 +132,7 @@ fun TelaLogin(navController: NavController) {
                 )
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(10.dp))
 
             Box(
                 modifier = Modifier
