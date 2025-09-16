@@ -75,8 +75,8 @@ fun TelaLogin(navController: NavController) {
             Text(
                 text = "Digite seu Email ou Usuário",
                 fontSize = 14.sp,
-                color = Color.Black,
-                fontWeight = FontWeight.SemiBold,
+                color = Color(0xFF990410),
+                fontWeight = FontWeight.Bold,
                 modifier = Modifier.align(Alignment.Start)
             )
             OutlinedTextField(
@@ -106,8 +106,8 @@ fun TelaLogin(navController: NavController) {
             Text(
                 text = "Digite sua Senha",
                 fontSize = 14.sp,
-                color = Color.Black,
-                fontWeight = FontWeight.SemiBold,
+                color = Color(0xFF990410),
+                fontWeight = FontWeight.Bold,
                 modifier = Modifier.align(Alignment.Start)
             )
             OutlinedTextField(
