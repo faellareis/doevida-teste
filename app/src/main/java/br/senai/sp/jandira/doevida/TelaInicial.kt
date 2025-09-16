@@ -116,7 +116,7 @@ fun TelaInicial() {
                 color = Color(0xFFB71C1C),
                 fontSize = 14.sp,
                 modifier = Modifier
-                    .padding(start = 24.dp, bottom = 24.dp)
+                    .padding(bottom = 24.dp)
                     .align(AbsoluteAlignment.Left)
                     .clickable { /* Navegação para outra tela */ }
             )
