@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.senai.sp.jandira.doevida.ui.theme.DoeVidaTheme
 
@@ -21,22 +22,25 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             DoeVidaTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                AppNavigation()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun AppNavigation() {
+    val navController = rememberNavController()
 
+    NavHost(
+        navController = navController,
+        startDestination = "tela_inicial"
+    ) {
+        composable("tela_inicial") {
+            TelaInicial(navController)
+        }
+        composable("tela_login") {
+            TelaLogin(navController)
+        }
+    }
+}

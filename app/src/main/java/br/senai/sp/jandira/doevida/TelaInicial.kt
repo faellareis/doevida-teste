@@ -30,9 +30,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun TelaInicial() {
+fun TelaInicial(navController: NavController) {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -74,7 +76,7 @@ fun TelaInicial() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(
-                onClick = { /* Navegação para tela de login */ },
+                onClick = { navController.navigate("tela_login") },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFB990410)
                 ),
@@ -127,5 +129,6 @@ fun TelaInicial() {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun TelaInicialPreview() {
-    TelaInicial()
+    val navController = rememberNavController()
+    TelaInicial(navController = navController)
 }
