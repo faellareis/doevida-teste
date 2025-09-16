@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">DoeVida</string>
+    <string name="login_title">Login</string>
+    <string name="screen_title">Tela Login</string>
+    <string name="email_label">Digite seu Email ou Usuário</string>
+    <string name="password_label">Digite sua Senha</string>
+    <string name="forgot_password">Esqueci minha senha?</string>
+    <string name="login_button">Entrar</string>
+    <string name="no_account">Não tem uma conta?</string>
+    <string name="create_account">Fazer cadastro</string>
+    <string name="back_button">Voltar</string>
+    <string name="show_password">Mostrar senha</string>
+    <string name="hide_password">Ocultar senha</string>
+    <string name="user_icon">Usuário</string>
+    <string name="password_icon">Senha</string>
+    <string name="heart_icon">Coração</string>
 </resources>
