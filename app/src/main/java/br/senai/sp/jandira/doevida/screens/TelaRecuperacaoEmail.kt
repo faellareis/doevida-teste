@@ -118,8 +118,6 @@ fun TelaRecuperacaoEmail(navController: NavController) {
                     )
                 }
             )
-
-            // Spacer para empurrar o botão para baixo
             Spacer(modifier = Modifier.weight(1f))
 
             Button(
@@ -139,8 +137,6 @@ fun TelaRecuperacaoEmail(navController: NavController) {
                     fontWeight = FontWeight.Medium
                 )
             }
-
-            // Spacer para garantir que o botão não toque a parte inferior
             Spacer(modifier = Modifier.weight(0.5f))
         }
     }

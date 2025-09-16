@@ -79,7 +79,7 @@ fun TelaInicial(navController: NavController) {
             Button(
                 onClick = { navController.navigate("tela_login") },
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFB990410)
+                    containerColor = Color(0xFF990410)
                 ),
                 shape = RoundedCornerShape(8.dp),
                 modifier = Modifier
@@ -120,7 +120,7 @@ fun TelaInicial(navController: NavController) {
                 fontSize = 14.sp,
                 modifier = Modifier
                     .padding(bottom = 24.dp)
-                    .align(AbsoluteAlignment.Left)
+                    .align(Alignment.Start)
                     .clickable { /* Navegação para outra tela */ }
             )
         }
@@ -129,7 +129,7 @@ fun TelaInicial(navController: NavController) {
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-private fun TelaInicialPreview() {
+fun TelaInicialPreview() {
     val navController = rememberNavController()
     TelaInicial(navController = navController)
 }
